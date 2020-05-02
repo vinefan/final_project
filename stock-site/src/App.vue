@@ -2,21 +2,23 @@
   <div id="app">
     <Nav></Nav>
     <!-- <BasePage/> -->
-    <Login></Login>
+    <!-- <Login></Login> -->
+    <Register></Register>
   </div>
 </template>
 
 <script>
 // import BasePage from "./components/BasePage";
 import Nav from "./components/CommonComponents/Nav";
-import Login from "./components/LoginPage/Login"
+// import Login from "./components/LoginPage/Login"
+import Register from "./components/RegisterPage/Register"
 
 export default {
   name: 'App',
   components: {
     // BasePage,
     Nav,
-    Login
+    Register
   }
 }
 </script>
