@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-<!--    <Nav/>-->
+    <Nav/>
 <!--    <BasePage/>-->
     <UserPage/>
   </div>
@@ -16,7 +16,7 @@ export default {
   components: {
     // BasePage,
     UserPage,
-    // Nav
+    Nav
   }
 }
 </script>

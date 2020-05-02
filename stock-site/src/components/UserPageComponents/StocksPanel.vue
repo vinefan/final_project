@@ -3,7 +3,7 @@
         <el-table
                 :data="stockList"
                 style="width: 100%"
-                height="300"
+                height="280"
                 @row-click="clickItem">
             <el-table-column
                     fixed

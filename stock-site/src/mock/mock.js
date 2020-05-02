@@ -104,12 +104,11 @@ Mock.mock('http://stocksite/delete', {
 
 //推荐数据
 Mock.mock('http://stocksite/recommend', {
-    'data|3':[
+    'data|2':[
         {
-            'source':'@cname',
-            'comments':[
-
-            ]
+            'type|1':['短期','中期','长期'],
+            'source':'网站 www.baidu.adopjok/awpdj9',
+           'text|1':["第一，充分认识风险。回报高意味着风险大。他说，虽然这听起来并不新鲜，但投资者被盈利冲昏头脑时，往往会忽略风险的存在。",'在这些简报季刊做出看跌预测，建议投资者们卖出手上的股票时，其正确率也很差劲。比如上图显示，在这些简报建议卖出股票后的一个月，美国股市大约有一半时间是上涨的。']
         }
     ]
 });

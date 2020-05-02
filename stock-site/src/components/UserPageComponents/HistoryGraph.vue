@@ -10,6 +10,7 @@
     import 'echarts/lib/component/legend'
     import 'echarts/lib/component/title'
     import 'echarts/lib/component/tooltip'
+    import 'echarts/lib/component/grid'
 
     export default {
         name: "HistoryGraph",
@@ -81,7 +82,13 @@
                             borderRadius: 4,           // 提示边框圆角，单位px，默认为4
                             borderWidth: 0,            // 提示边框线宽，单位px，默认为0（无边框）
                             padding: 5,
-                        }
+                        },
+                        grid: {
+                            x: 50,
+                            y: 25,
+                            x2: 30,
+                            y2: 35
+                        },
 
                     }
                 }
@@ -108,7 +115,7 @@
 
 <style scoped>
     .charts-item{
-        width: 600px;
-        height: 200px;
+        width: 580px;
+        height: 150px;
     }
 </style>

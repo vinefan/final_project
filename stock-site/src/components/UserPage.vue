@@ -4,13 +4,16 @@
             <div class="m-part i-socketList">
                 <StocksPanel :stockList="stockList" @getStockId="getStockId" @getCurrData="getCurrData"/>
             </div>
+            <div class="m-part">
+                <Recommend :recommendData="recommendData"/>
+            </div>
         </div>
         <div class="g-box2">
             <div class="m-part">
                 <HistoryGraph :historyData="historyData"/>
                 <CurrentGraph :currentData="currentData" />
             </div>
-            <div class="m-part">
+            <div class="m-part i-comm">
                 <UserRemarks :userData="noteData"/>
             </div>
         </div>
@@ -23,6 +26,7 @@
     import HistoryGraph from "./UserPageComponents/HistoryGraph";
     import UserRemarks from "./UserPageComponents/UserRemarks";
     import CurrentGraph from "./UserPageComponents/CurrentGraph";
+    import Recommend from "./UserPageComponents/Recommend";
 
     export default {
         name: "UserPage",
@@ -30,7 +34,8 @@
             StocksPanel,
             HistoryGraph,
             CurrentGraph,
-            UserRemarks
+            UserRemarks,
+            Recommend
         },
         data(){
             return{
@@ -41,6 +46,7 @@
                 historyData:[],     //历史画图数据
                 noteData:[],       //备注数据
                 currentData:[],     //实时画图数据
+                recommendData:[]    //投资推荐
             }
         },
         mounted() {
@@ -66,13 +72,19 @@
         watch:{
             selectStockId(val){
                 var that = this
+                //绘图请求
                 that.$axios.post('http://stocksite/graph',{
                     stockid:val,
                 }).then(function(res){
                     that.historyData=res.data.data
                     that.noteData=res.data.note
-
-
+                })
+                //投资建议请求
+                that.$axios.post('http://stocksite/recommend',{
+                    stockid:val,
+                }).then(function(res){
+                    that.recommendData=res.data.data
+                    console.log(that.recommendData)
                 })
             }
         }
@@ -102,7 +114,7 @@
     .m-part{
         padding: 10px 30px;
     }
-    .i-socketList{
-        height: 100%;
-    }
+    /*.i-socketList{*/
+    /*    height: 50%;*/
+    /*}*/
 </style>
