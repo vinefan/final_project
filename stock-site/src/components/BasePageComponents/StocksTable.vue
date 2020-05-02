@@ -1,13 +1,13 @@
 <template>
     <div>
         <el-table
-                :data="bigPanel"
-                height="180"
-                border
+                :data="data"
+                v-loading=loading
+                height="400"
                 style="width: 100%">
             <el-table-column
                     fixed="left"
-                    prop="id"
+                    prop="stockid"
                     label="代码">
             </el-table-column>
             <el-table-column
@@ -16,37 +16,35 @@
                     label="名称">
             </el-table-column>
             <el-table-column
-                    prop="rate"
-                    label="涨幅">
-            </el-table-column>
-            <el-table-column
                     prop="price"
                     label="现价">
             </el-table-column>
             <el-table-column
-                    prop="updown"
+                    prop="rate"
                     label="涨跌">
-            </el-table-column>
-            <el-table-column
-                    prop="quantity"
-                    label="总量">
             </el-table-column>
         </el-table>
     </div>
 </template>
 
 <script>
-
     export default {
-        name: "MarketPrice",
+        name: "StocksTable",
         props:{
-            bigPanel:Array
+            data:Array,
         },
         data(){
             return{
-
+                loading:true
             }
         },
+        watch:{
+          data:function (val) {
+            if(val.length>1){
+                this.loading=false
+            }
+          }
+        }
 
     }
 </script>
