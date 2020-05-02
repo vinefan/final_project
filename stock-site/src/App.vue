@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Nav></Nav>
     <BasePage/>
 
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import BasePage from "./components/BasePage";
+import Nav from "./components/CommonComponents/Nav"
 
 export default {
   name: 'App',
   components: {
-    BasePage
+    BasePage,
+    Nav
   }
 }
 </script>
