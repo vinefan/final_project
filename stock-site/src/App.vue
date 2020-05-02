@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <BasePage/>
+<!--    <Nav/>-->
+<!--    <BasePage/>-->
     <UserPage/>
-    <Nav></Nav>
   </div>
 </template>
 
 <script>
-import BasePage from "./components/BasePage";
+// import BasePage from "./components/BasePage";
 import UserPage from "./components/UserPage";
 import Nav from "./components/CommonComponents/Nav"
 
 export default {
   name: 'App',
   components: {
-    BasePage,
-    UserPage
-    Nav
+    // BasePage,
+    UserPage,
+    // Nav
   }
 }
 </script>
