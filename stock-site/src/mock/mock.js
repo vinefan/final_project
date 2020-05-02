@@ -57,3 +57,18 @@ Mock.mock('http://stocksite/index', {
     ],
 
 });
+
+Mock.mock('http://stocksite/myfavourite', {
+    //我的自选股票
+    'stock|10':[
+        {
+            'stockid|+1':'959900',
+            'name':'@cname',
+            'price':Random.float(10,60).toFixed(2),
+            'rate':Random.float(0,100).toFixed(2)
+        }
+    ],
+
+
+});
+

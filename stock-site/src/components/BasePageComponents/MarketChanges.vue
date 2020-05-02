@@ -33,8 +33,8 @@
         methods: {
             initCharts() {
                 var that=this
-                this.chart = echarts.init(document.getElementById('MarketChangesChart'));
-                this.chart.setOption(this.option);
+                that.chart = echarts.init(document.getElementById('MarketChangesChart'));
+                that.chart.setOption(that.option);
                 //echarts窗口缩放//待改进
                 window.onresize = function () {
                     that.chart.resize()
@@ -52,13 +52,9 @@
                     // title: {
                     //     text: "vue-Echarts"
                     // },
-                    // legend: {
-                    //     data: ["销量"]
-                    // },
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                         data:this.timePoint
                     },
                     yAxis: [

@@ -2,7 +2,7 @@
     <div>
         <el-table
                 :data="bigPanel"
-                height="200"
+                height="180"
                 border
                 style="width: 100%">
             <el-table-column

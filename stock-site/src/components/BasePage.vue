@@ -11,7 +11,7 @@
             </div>
             <div class="m-part i-charts">
                 <div class="m-title">
-                    <img src="@/assets/u1.png">
+                    <img src="@/assets/u2.png">
                     <p>大盘异动</p>
                 </div>
                 <MarketChanges :bigPanelChange="bigPanelChange"/>
@@ -20,10 +20,10 @@
         <div class="g-box2">
             <div class="m-part">
                 <div class="m-title">
-                    <img src="@/assets/u1.png">
+                    <img src="@/assets/u3.png">
                     <p>涨跌排名</p>
                 </div>
-            <StockRank :stocksUpDown="stocksUpDown"/>
+            <StocksRank :stocksUpDown="stocksUpDown"/>
             </div>
         </div>
     </div>
@@ -33,13 +33,13 @@
     import data from "../mock/mock.js";
     import MarketPrice from "./BasePageComponents/MarketPrice";
     import MarketChanges from "./BasePageComponents/MarketChanges";
-    import StockRank from "./BasePageComponents/StockRank";
+    import StocksRank from "./BasePageComponents/StocksRank";
     export default {
         name: "BasePage",
         components:{
             MarketPrice,
             MarketChanges,
-            StockRank
+            StocksRank
         },
         data(){
             return{
@@ -52,7 +52,7 @@
         created(){
             var that = this
             //get请求大盘行情数据
-            this.$axios.get('http://stocksite/index')
+            that.$axios.post('http://stocksite/index')
                 .then(res => {
                     that.bigPanel = res.data.bigPanel;
                     that.bigPanelChange = res.data.bigPanelChange

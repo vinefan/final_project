@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <BasePage/>
+<!--    <BasePage/>-->
+    <UserPage/>
+
 
   </div>
 </template>
 
 <script>
 import BasePage from "./components/BasePage";
+import UserPage from "./components/UserPage";
 
 export default {
   name: 'App',
   components: {
-    BasePage
+    BasePage,
+    UserPage
   }
 }
 </script>

@@ -2,7 +2,8 @@
     <div>
         <el-table
                 :data="data"
-                height="420"
+                v-loading=loading
+                height="400"
                 style="width: 100%">
             <el-table-column
                     fixed="left"
@@ -30,8 +31,21 @@
     export default {
         name: "StocksTable",
         props:{
-            data:Array
+            data:Array,
+        },
+        data(){
+            return{
+                loading:true
+            }
+        },
+        watch:{
+          data:function (val) {
+            if(val.length>1){
+                this.loading=false
+            }
+          }
         }
+
     }
 </script>
 
