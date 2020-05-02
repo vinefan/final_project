@@ -1,25 +1,19 @@
 <template>
   <div id="app">
     <Nav></Nav>
-    <!-- <BasePage/> -->
-    <!-- <Login></Login> -->
-    <!-- <Register></Register> -->
     <Verify></Verify>
-    <BasePage/>
     <UserPage/>
-    <Nav></Nav>
   </div>
 </template>
 
 <script>
-import BasePage from "./components/BasePage";
+
 import Nav from "./components/CommonComponents/Nav";
 // import Login from "./components/LoginPage/Login"
 // import Register from "./components/RegisterPage/Register"
 import Verify from "./components/CommonComponents/Verify"
 import BasePage from "./components/BasePage";
 import UserPage from "./components/UserPage";
-import Nav from "./components/CommonComponents/Nav"
 
 export default {
   name: 'App',
@@ -27,7 +21,6 @@ export default {
     // BasePage,
     Nav,
     Verify,
-    BasePage,
     UserPage
   }
 }
