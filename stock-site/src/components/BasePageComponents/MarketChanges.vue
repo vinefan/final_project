@@ -35,11 +35,13 @@
                 var that=this
                 that.chart = echarts.init(document.getElementById('MarketChangesChart'));
                 that.chart.setOption(that.option);
+
                 //echarts窗口缩放//待改进
                 window.onresize = function () {
                     that.chart.resize()
                 }
-            },
+
+            }
         },
         watch: {
             //props值传过来，就处理数据

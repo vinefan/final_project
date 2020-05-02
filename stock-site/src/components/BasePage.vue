@@ -84,7 +84,7 @@
         padding: 10px 30px;
     }
     .i-charts{
-        width: 100%;
+        /*width: 100%;*/
         height: 100%;
     }
     .m-title{

@@ -7,12 +7,11 @@
 </template>
 
 <script>
-
+// import BasePage from "./components/BasePage";
 import Nav from "./components/CommonComponents/Nav";
 // import Login from "./components/LoginPage/Login"
 // import Register from "./components/RegisterPage/Register"
 import Verify from "./components/CommonComponents/Verify"
-import BasePage from "./components/BasePage";
 import UserPage from "./components/UserPage";
 
 export default {
