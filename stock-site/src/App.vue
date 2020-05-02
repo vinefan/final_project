@@ -3,7 +3,8 @@
     <Nav></Nav>
     <!-- <BasePage/> -->
     <!-- <Login></Login> -->
-    <Register></Register>
+    <!-- <Register></Register> -->
+    <Verify></Verify>
   </div>
 </template>
 
@@ -11,14 +12,15 @@
 // import BasePage from "./components/BasePage";
 import Nav from "./components/CommonComponents/Nav";
 // import Login from "./components/LoginPage/Login"
-import Register from "./components/RegisterPage/Register"
+// import Register from "./components/RegisterPage/Register"
+import Verify from "./components/CommonComponents/Verify"
 
 export default {
   name: 'App',
   components: {
     // BasePage,
     Nav,
-    Register
+    Verify
   }
 }
 </script>

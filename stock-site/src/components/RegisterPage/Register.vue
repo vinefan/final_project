@@ -7,6 +7,9 @@
                 <el-input v-model="register.email" placeholder='仅支持邮箱号注册'></el-input>
                 <h3>设置密码</h3>
                 <el-input v-model="register.password" placeholder="密码" show-password></el-input>
+               
+                
+
                 <div class="login-buttons">
                     <el-button type="primary">验证邮箱</el-button>
                 </div>
@@ -33,21 +36,19 @@ export default {
             register:{
                 email: "",
                 password: ''
-            }
+            },
+            msg: ''
         }
-    }
+    }   
+
 }
 </script>
 
 <style  scoped>
-@media screen and (min-width: 320px) and (max-width: 450px){
-    .login{
-        width: 350px;
-    }
-}
+
 .login-wrapper{
     width:100%;
-    height: 670px;
+    height: 700px;
     /* background: #000; */
     background-image: url('../../assets/login_bg.jpg');
     background-size: 100%  ;
@@ -56,7 +57,7 @@ export default {
 }
 .login{
     width: 500px;
-    height: 600px;
+    /* height: 600px; */
     margin: auto;
     /* background: #eee; */
     border: solid 1px #eee;
@@ -102,6 +103,7 @@ export default {
     display: inline-block;
     width: 33%;
     margin: auto;
+    min-width: 100px;
 }
 #button-re{
     text-align: right;
@@ -111,6 +113,7 @@ export default {
     width: 70%;
     margin: 0 auto;
     color: #666;
+    margin-bottom: 30px;
 }
 .description h6{
     font-size: 16px;
@@ -123,6 +126,8 @@ export default {
 .description li{
     padding: 5px;
 }
-
+.slide-verify-slider{
+    width: 200px !important;
+}
 
 </style>
