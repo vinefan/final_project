@@ -1,7 +1,7 @@
 <template>
     <div class="verify-wrapper">
         <div class="verify-box">
-            <h2>人机验证</h2>
+            <h2>· 人机验证 ·</h2>
             <div class="verify">
                 <slide-verify 
                     w=310
@@ -73,11 +73,12 @@ export default {
 }
 
 h2{
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
-    padding-bottom: 10px;
+    padding: 8px;
     text-align: center;
     color: #333;
     border-bottom: 1px #777 dashed;
+    margin-bottom: 40px;
 }
 </style>
