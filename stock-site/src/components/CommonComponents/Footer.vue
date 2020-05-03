@@ -23,7 +23,6 @@ export default {
     height: 25px;
     background: #eee;
     padding-top: 15px;
-
 }
 h6{
     margin: 0;

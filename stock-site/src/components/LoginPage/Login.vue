@@ -102,6 +102,7 @@ export default {
                         duration: '2200',
                     });
                 })
+
         },
         jumpToRejist: function(){
             
