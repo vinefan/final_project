@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Nav></Nav>
-    <Verify></Verify>
-    <UserPage/>
+    <router-view></router-view>
+    
   </div>
 </template>
 

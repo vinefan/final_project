@@ -4,14 +4,17 @@
           <h2>Stock - site</h2>
       </div>
       <div class="buttons">
-          <el-menu :default-active="activeIndex" 
+          <el-menu default-active="activeIndex"
                     class="el-menu-demo" 
                     mode="horizontal" 
                     @select="handleSelect"
-                    active-text-color="#d00305">
-            <el-menu-item index="1" class="center">个人中心</el-menu-item>
-            <el-menu-item index="2" class="login">登录</el-menu-item>
-            <el-menu-item index="3" class="register">注册</el-menu-item>
+                    active-text-color="#d00305"
+                    router=true>
+            <el-menu-item index="/center" class="center"><i class="el-icon-s-custom"></i>个人中心</el-menu-item>
+            <el-menu-item index="/" class="home">首页</el-menu-item>
+            <el-menu-item index="/login" class="login">登录</el-menu-item>
+            <el-menu-item index="/register" class="register">注册</el-menu-item>
+
           </el-menu>
       </div>
   </div>
@@ -20,6 +23,12 @@
 <script>
 export default {
   name: 'App',
+  data: function(){
+      return{
+          activeIndex: this.$route.path,
+
+      }
+  }
 
 }
 </script>
@@ -61,7 +70,7 @@ export default {
 }
 
 .el-menu-demo{
-    width: 300px;
+    width: 360px;
 }
 
 .el-menu-item{

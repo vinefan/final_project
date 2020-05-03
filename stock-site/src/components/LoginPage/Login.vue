@@ -8,7 +8,7 @@
                 <h3>密码</h3>
                 <el-input v-model="login.password" placeholder="密码" show-password></el-input>
                 <div class="login-buttons">
-                    <el-button type="primary">登录</el-button>
+                    <el-button type="primary" @click="sendLoginMsg">登录</el-button>
                 </div>
                 <div class="login-buttons" id="button-re">
                     <el-button type="info" >注册</el-button>
@@ -29,13 +29,76 @@
 </template>
 
 <script>
+import { JSEncrypt } from 'jsencrypt';
+
 export default {
     data: function(){
         return{
             login:{
                 email: "",
-                password: ''
+                password: '',
+                pubKey: "-----BEGIN PUBLIC KEY----- MIGfMA0GCSqGSIb3 \
+                    DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtNFOb \
+                    9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeu \
+                    cF+S76xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7ei \
+                    bMxZtMlUDHjm4gwQco1KRMDSmXSMkDwIDAQAB-----END PUBLIC KEY-----",
             }
+        }
+    },
+    methods:{
+        sendLoginMsg: function(){
+            var login = this.login;
+            // 判断表单
+            if( login.email==''){
+                this.$notify({
+                        title: '警告',
+                        message: '邮箱为空',
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                return
+            }
+            if(login.password==''){
+                this.$notify({
+                        title: '警告',
+                        message: '密码为空',
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                return
+            }
+
+            //加密
+            // let encrypor = new JSEncrypt();
+            // encrypor.setPublicKey(this.pubKey);            
+            // return encrypor.encrypt(data)
+
+            // 发送请求
+            this.axios({
+                method: "post",
+                url:"",
+                data: login
+                })
+                .then((response)=> {
+
+                    // 设置session, 还有设置session_time
+                    this.$cookies.set('superSession', response.data.session);
+                    // 跳转到主页
+                    // this.$router.push('/check/in')
+
+                })
+                .catch(()=> {
+                    this.isloading = false;
+                    this.$notify({
+                        title: '警告',
+                        message: '网络异常，请稍后再试',
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                })
         }
     }
 }
