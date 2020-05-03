@@ -4,14 +4,17 @@
           <h2>Stock - site</h2>
       </div>
       <div class="buttons">
-          <el-menu :default-active="activeIndex" 
+          <el-menu router default-active='/'
                     class="el-menu-demo" 
                     mode="horizontal" 
                     @select="handleSelect"
-                    active-text-color="#d00305">
-            <el-menu-item index="1" class="center">个人中心</el-menu-item>
-            <el-menu-item index="2" class="login">登录</el-menu-item>
-            <el-menu-item index="3" class="register">注册</el-menu-item>
+                    active-text-color="#d00305"
+                    >
+            <el-menu-item index="/center" class="center"><i class="el-icon-s-custom"></i>个人中心</el-menu-item>
+            <el-menu-item index="/" class="home">首页</el-menu-item>
+            <el-menu-item index="/login" class="login">登录</el-menu-item>
+            <el-menu-item index="/register" class="register">注册</el-menu-item>
+
           </el-menu>
       </div>
   </div>
@@ -20,6 +23,16 @@
 <script>
 export default {
   name: 'App',
+  props:['link'],
+  data: function(){
+      return{
+          activeIndex: this.$router.path,
+
+      }
+  },
+  mounted: function () {
+      this.$router.path = this.link
+    }
 
 }
 </script>
@@ -31,7 +44,7 @@ export default {
     height: 70px;
     border-bottom: 1px solid rgb(248, 248, 248);
     /* background: linear-gradient(to bottom right, #eee, #fff); */
-    box-shadow: rgb(253, 252, 252) 10px 10px 10px ;
+    box-shadow: rgb(250, 250, 250) 10px 10px 10px ;
 }
 .logo{
     width: 350px;
@@ -61,7 +74,7 @@ export default {
 }
 
 .el-menu-demo{
-    width: 300px;
+    width: 360px;
 }
 
 .el-menu-item{

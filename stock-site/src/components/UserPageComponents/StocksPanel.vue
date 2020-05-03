@@ -4,6 +4,7 @@
                 :data="stockList"
                 style="width: 100%"
                 height="280"
+                highlight-current-row=true
                 @row-click="clickItem">
             <el-table-column
                     fixed
@@ -59,11 +60,12 @@
                     //启动定时器
                     that.timerText="暂停"
                     that.timer = setInterval(() => {
-
-                        that.$axios.post('http://stocksite/currentdata',{
-                            stockid:id,
+                        // http://stocksite/currentdata
+                        that.$axios.post('http://112.74.58.75:8010/realtimePoint',{
+                            stockId:id,
                         }).then(function(res){
                             that.$emit('getCurrData', res.data.data);
+                            console.log(res)
                         })
                     }, 1000);
                 }else{
@@ -78,13 +80,34 @@
                 that.selectId=val.stockid
                 this.$emit('getStockId', that.selectId);
             },
+
             deleteRow(index, rows,data) {
+                var that=this
                 rows.splice(index, 1);
-                this.deleteList.push(data.stockid)
+                // this.deleteList.push(data.stockid)
+
+                //发送删除请求
+                that.$axios.post('http://112.74.58.75:8010/removeStock',{
+                    stockid:data.stockid,
+                }).then(res=>{
+                    if(res.data.status==200){
+                        that.$message({
+                            type: 'success',
+                            message: '删除成功'
+                        })
+                    }else if(res.data.status==400){
+                        that.$message({
+                            type: 'info',
+                            message: '删除失败'
+                        });
+                    }
+                })
+
+                //清除定时器
                 clearInterval(this.timer)
             },
             showText(val){
-                if(val==this.selectId){
+                if(val==this.selectId&&this.timer!=null){
                     return this.timerText
                 }else{
                     return '实时'
@@ -93,14 +116,23 @@
         },
         beforeDestroy() {
             var that = this
-            that.$axios.post('http://stocksite/delete',{
-                stockid:that.deleteList,
-            }).then(function(){
-                console.log("删除成功！")
-
-            })
+            // http://stocksite/delete
+            // that.$axios.post('http://112.74.58.75:8010/removeStock',{
+            //     stockid:that.deleteList,
+            // }).then(function(){
+            //     console.log("删除成功！")
+            //
+            // })
             //删除定时器
             clearInterval(that.timer)
+        },
+        watch:{
+            selectId(){
+                if(this.timer!=null){
+                    clearInterval(this.timer)
+                    this.timerText='实时'
+                }
+            }
         }
 
     }

@@ -7,11 +7,9 @@
                 <el-input v-model="register.email" placeholder='仅支持邮箱号注册'></el-input>
                 <h3>设置密码</h3>
                 <el-input v-model="register.password" placeholder="密码" show-password></el-input>
-               
-                
-
+                <p>(密码至少为6位数)</p>
                 <div class="login-buttons">
-                    <el-button type="primary">验证邮箱</el-button>
+                    <el-button type="primary" @click="sendRegistMsg">验证邮箱</el-button>
                 </div>
                 
              </div>
@@ -39,6 +37,60 @@ export default {
             },
             msg: ''
         }
+    },
+    methods:{
+        sendRegistMsg: function(){
+            var register = this.register
+            if(register.email == ''){
+                this.$message({
+                    message: '请填写邮箱',
+                    type: 'warning',
+                    offset: 40
+                    });
+                return
+            }
+            else if(register.password == ''){
+                this.$message({
+                    message: '请填写密码',
+                    type: 'warning',
+                    offset: 40
+                    });
+                return
+            }
+            var ls = register.email.split('@')
+            if(ls.length != 2){
+                this.$message({
+                    dangerouslyUseHTMLString: true,
+                    message: '请 <strong>正确填写</strong> 邮箱',
+                    type: 'warning',
+                    offset: 40
+                    });
+                return
+            }else{
+                if(ls[1] == ''){
+                    this.$message({
+                        dangerouslyUseHTMLString: true,
+                        message: '请 <strong>正确填写</strong> 邮箱',
+                        type: 'warning',
+                        offset: 40
+                        });
+                    return
+                }
+            }
+
+            if(register.password.length < 6){
+                this.$message({
+                    dangerouslyUseHTMLString: true,
+                    message: '密码少于6位数',
+                    type: 'warning',
+                    offset: 40
+                    });
+                return
+            }
+
+            this.$router.push({ path: '/verify', query: {user: register, type:0}})
+
+        }
     }   
 
 }
@@ -48,7 +100,7 @@ export default {
 
 .login-wrapper{
     width:100%;
-    height: 700px;
+    height: 670px;
     /* background: #000; */
     background-image: url('../../assets/login_bg.jpg');
     background-size: 100%  ;

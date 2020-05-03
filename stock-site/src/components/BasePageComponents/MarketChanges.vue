@@ -56,12 +56,13 @@
                     // },
                     xAxis: {
                         type: 'category',
-                        boundaryGap: false,
+                        boundaryGap: true,
                         data:this.timePoint
                     },
                     yAxis: [
                         {
-                            type: "value"
+                            type: "value",
+                            scale:true
                         }
                     ],
                     series: [{

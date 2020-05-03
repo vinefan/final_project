@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import data from "../mock/mock.js";
+    // import data from "../mock/mock.js";
     import MarketPrice from "./BasePageComponents/MarketPrice";
     import MarketChanges from "./BasePageComponents/MarketChanges";
     import StocksRank from "./BasePageComponents/StocksRank";
@@ -51,8 +51,8 @@
         },
         created(){
             var that = this
-            //get请求大盘行情数据
-            that.$axios.post('http://stocksite/index')
+            //请求大盘行情数据
+            that.$axios.post('http://112.74.58.75:8010/index')
                 .then(res => {
                     that.bigPanel = res.data.bigPanel;
                     that.bigPanelChange = res.data.bigPanelChange
@@ -85,7 +85,7 @@
     }
     .i-charts{
         /*width: 100%;*/
-        height: 100%;
+        /*height: 100%;*/
     }
     .m-title{
         display: flex;
