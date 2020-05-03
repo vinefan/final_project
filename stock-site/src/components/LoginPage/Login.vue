@@ -77,29 +77,32 @@ export default {
             // return encrypor.encrypt(data)
 
             // 发送请求
-            // this.axios({
-            //     method: "post",
-            //     url:"",
-            //     data: login
-            //     })
-            //     .then((response)=> {
+            var that = this
+            that.axios({
+                method: "post",
+                url:"http://112.74.58.75:8010/login",
+                data: login
+                })
+                .then((response)=> {
 
-            //         // 设置session, 还有设置session_time
-            //         this.$cookies.set('superSession', response.data.session);
-            //         // 跳转到主页
-            //         // this.$router.push('/check/in')
+                    // 设置session, 还有设置session_time
+                    that.$cookies.set('superSession', response.data.session);
+                    // 跳转到主页
+                    // this.$router.push('/check/in')
+                    that.$router.push('/center')
 
-            //     })
-            //     .catch(()=> {
-            //         this.isloading = false;
-            //         this.$notify({
-            //             title: '警告',
-            //             message: '网络异常，请稍后再试',
-            //             type: 'warning',
-            //             showClose: false,
-            //             duration: '2200',
-            //         });
-            //     })
+                })
+                .catch(()=> {
+                    that.isloading = false;
+                    that.$notify({
+                        title: '警告',
+                        message: '网络异常，请稍后再试',
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                })
+
         },
         jumpToRejist: function(){
             

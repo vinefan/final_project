@@ -31,6 +31,12 @@ export default {
                 this.msg = "验证成功"
                 // alert(this.$route.query.user)
                 this.timer = setTimeout(()=>{   //设置延迟执行
+
+                    this.$message({
+                        message: '发送请求中',
+                        offset: 72
+                    });
+
                     if(this.type == 0){
                         this.axios({
                             method: "post",

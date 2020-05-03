@@ -44,7 +44,7 @@ export default {
     height: 70px;
     border-bottom: 1px solid rgb(248, 248, 248);
     /* background: linear-gradient(to bottom right, #eee, #fff); */
-    box-shadow: rgb(253, 252, 252) 10px 10px 10px ;
+    box-shadow: rgb(250, 250, 250) 10px 10px 10px ;
 }
 .logo{
     width: 350px;

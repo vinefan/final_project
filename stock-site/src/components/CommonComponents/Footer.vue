@@ -20,7 +20,7 @@ export default {
     }
 .footer-wrapper{
     width: 100%;
-    height: 50px;
+    height: 25px;
     background: #eee;
     padding-top: 15px;
 }

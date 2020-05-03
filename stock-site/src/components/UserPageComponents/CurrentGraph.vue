@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div id="CurrentGraphChart" ref="chart" class="charts-item"></div>
+        <div id="CurrentGraphChart" ref="chart" class="charts-item" v-if="GShow"></div>
+        <div class="charts-item" v-if="!GShow">
+            <p style="font-size: 20px;color: grey">当前股票暂无实时交易数据</p>
+        </div>
     </div>
 </template>
 
@@ -23,6 +26,8 @@
                 data:[],
                 time:[],
                 price:[],
+                GShow:false,
+
                 option:{
                     color: '#7bbfea',
                     // title: {
@@ -35,7 +40,8 @@
                     },
                     yAxis: [
                         {
-                            type: "value"
+                            type: "value",
+                            scale:true
                         }
                     ],
                     series: [{
@@ -89,6 +95,11 @@
                     this.price = this.data.map(obj => {
                         return obj.price
                     })
+                    if(this.price.length>0){
+                        this.GShow=true
+                    }
+
+
                     this.option = {
                         color: '#7bbfea',
                         // title: {
@@ -101,7 +112,8 @@
                         },
                         yAxis: [
                             {
-                                type: "value"
+                                type: "value",
+                                scale:true
                             }
                         ],
                         series: [{
@@ -151,5 +163,8 @@
     .charts-item{
         width: 580px;
         height: 150px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
     }
 </style>

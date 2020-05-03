@@ -23,7 +23,46 @@
                 data:[],
                 time:[],
                 price:[],
-                option:[]
+
+                option:{
+                    color: '#7bbfea',
+                    // title: {
+                    //     text: "vue-Echarts"
+                    // },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: this.time
+                    },
+                    yAxis: [
+                        {
+                            type: 'value',
+                            scale:true
+                        }
+                    ],
+                    series: [{
+                        type: 'line',
+                        areaStyle: {},
+                        data: this.price
+                    }],
+                    tooltip: {
+                        trigger: 'axis',           // 触发类型，默认数据触发，见下图，可选为：'item' ¦ 'axis'
+                        showDelay: 20,             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms
+                        hideDelay: 100,            // 隐藏延迟，单位ms
+                        transitionDuration: 0.4,  // 动画变换时间，单位s
+                        backgroundColor: 'rgba(0,0,0,0.7)',     // 提示背景颜色，默认为透明度为0.7的黑色
+                        borderColor: '#333',       // 提示边框颜色
+                        borderRadius: 4,           // 提示边框圆角，单位px，默认为4
+                        borderWidth: 0,            // 提示边框线宽，单位px，默认为0（无边框）
+                        padding: 5,
+                    },
+                    grid: {
+                        x: 50,
+                        y: 25,
+                        x2: 30,
+                        y2: 35
+                    },
+                }
             }
         },
         mounted() {
@@ -52,6 +91,7 @@
                     this.price = this.data.map(obj => {
                         return obj.price
                     })
+
                     this.option = {
                         color: '#7bbfea',
                         // title: {
@@ -64,7 +104,8 @@
                         },
                         yAxis: [
                             {
-                                type: "value"
+                                type: "value",
+                                scale:true
                             }
                         ],
                         series: [{
