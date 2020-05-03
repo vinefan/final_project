@@ -4,12 +4,12 @@
           <h2>Stock - site</h2>
       </div>
       <div class="buttons">
-          <el-menu default-active="/"
+          <el-menu router default-active='/'
                     class="el-menu-demo" 
                     mode="horizontal" 
                     @select="handleSelect"
                     active-text-color="#d00305"
-                    router=true>
+                    >
             <el-menu-item index="/center" class="center"><i class="el-icon-s-custom"></i>个人中心</el-menu-item>
             <el-menu-item index="/" class="home">首页</el-menu-item>
             <el-menu-item index="/login" class="login">登录</el-menu-item>
@@ -23,12 +23,16 @@
 <script>
 export default {
   name: 'App',
+  props:['link'],
   data: function(){
       return{
-          activeIndex: this.$route.path,
+          activeIndex: this.$router.path,
 
       }
-  }
+  },
+  mounted: function () {
+      this.$router.path = this.link
+    }
 
 }
 </script>

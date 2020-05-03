@@ -21,20 +21,41 @@
 export default {
     data: function(){
         return{
-            msg: ''
+            msg: '',
+            user: {},
+            type: 0
         }
     } ,
     methods: {
             onSuccess(){
-                this.msg = 'login success'
+                this.msg = "验证成功"
+                // alert(this.$route.query.user)
+                this.timer = setTimeout(()=>{   //设置延迟执行
+                    this.$message({
+                        message: '发送请求中',
+                        offset: 72
+                    });
+
+                    if(this.type == 0){
+
+                    }else if(this.type ==1){
+
+                    }
+                    
+                },700);
+
             },
             onFail(){
-                this.msg = ''
+                
             },
             onRefresh(){
-                this.msg = ''
+                
             }
-        } 
+        },
+    mounted: function(){
+        this.user = this.$route.query.user
+        this.type = this.$route.query.type
+    }
 }
 </script>
 
@@ -79,6 +100,6 @@ h2{
     text-align: center;
     color: #333;
     border-bottom: 1px #777 dashed;
-    margin-bottom: 40px;
+    margin-bottom: 40px;    
 }
 </style>

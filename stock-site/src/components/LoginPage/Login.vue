@@ -11,7 +11,7 @@
                     <el-button type="primary" @click="sendLoginMsg">登录</el-button>
                 </div>
                 <div class="login-buttons" id="button-re">
-                    <el-button type="info" >注册</el-button>
+                    <el-button type="info" @click="jumpToRejist" >注册</el-button>
                 </div>
              </div>
              <div class="description">
@@ -70,35 +70,40 @@ export default {
                 return
             }
 
+            this.$router.push({path: '/verify', query: {user: login, type: 1}})
             //加密
             // let encrypor = new JSEncrypt();
             // encrypor.setPublicKey(this.pubKey);            
             // return encrypor.encrypt(data)
 
             // 发送请求
-            this.axios({
-                method: "post",
-                url:"",
-                data: login
-                })
-                .then((response)=> {
+            // this.axios({
+            //     method: "post",
+            //     url:"",
+            //     data: login
+            //     })
+            //     .then((response)=> {
 
-                    // 设置session, 还有设置session_time
-                    this.$cookies.set('superSession', response.data.session);
-                    // 跳转到主页
-                    // this.$router.push('/check/in')
+            //         // 设置session, 还有设置session_time
+            //         this.$cookies.set('superSession', response.data.session);
+            //         // 跳转到主页
+            //         // this.$router.push('/check/in')
 
-                })
-                .catch(()=> {
-                    this.isloading = false;
-                    this.$notify({
-                        title: '警告',
-                        message: '网络异常，请稍后再试',
-                        type: 'warning',
-                        showClose: false,
-                        duration: '2200',
-                    });
-                })
+            //     })
+            //     .catch(()=> {
+            //         this.isloading = false;
+            //         this.$notify({
+            //             title: '警告',
+            //             message: '网络异常，请稍后再试',
+            //             type: 'warning',
+            //             showClose: false,
+            //             duration: '2200',
+            //         });
+            //     })
+        },
+        jumpToRejist: function(){
+            
+            this.$router.push('/register')
         }
     }
 }

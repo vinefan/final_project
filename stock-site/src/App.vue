@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav></Nav>
+    <Nav v-bind:link='link'></Nav>
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -16,6 +16,11 @@ export default {
     // BasePage,
     Nav,
     Footer
+  },
+  data: function(){
+    return{
+      link: '/login'
+    }
   }
 }
 </script>

@@ -4,6 +4,7 @@ import BasePage from './components/BasePage'
 import UserPage from './components/UserPage'
 import Login from './components/LoginPage/Login'
 import Register from './components/RegisterPage/Register'
+import Verify from './components/CommonComponents/Verify'
 
 Vue.use(Router);
 export default new Router({
@@ -26,6 +27,11 @@ export default new Router({
             path: '/register',
             name: 'register',
             component: Register
+        },{
+            path: '/verify',
+            name: 'verify',
+            component: Verify,
+            // props: true
         }
     ]
 })
