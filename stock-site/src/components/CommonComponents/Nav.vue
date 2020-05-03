@@ -4,7 +4,7 @@
           <h2>Stock - site</h2>
       </div>
       <div class="buttons">
-          <el-menu default-active="activeIndex"
+          <el-menu default-active="/"
                     class="el-menu-demo" 
                     mode="horizontal" 
                     @select="handleSelect"

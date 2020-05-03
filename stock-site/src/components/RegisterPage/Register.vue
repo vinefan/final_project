@@ -48,7 +48,7 @@ export default {
 
 .login-wrapper{
     width:100%;
-    height: 700px;
+    height: 670px;
     /* background: #000; */
     background-image: url('../../assets/login_bg.jpg');
     background-size: 100%  ;

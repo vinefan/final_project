@@ -2,25 +2,20 @@
   <div id="app">
     <Nav></Nav>
     <router-view></router-view>
-    
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-// import BasePage from "./components/BasePage";
 import Nav from "./components/CommonComponents/Nav";
-// import Login from "./components/LoginPage/Login"
-// import Register from "./components/RegisterPage/Register"
-import Verify from "./components/CommonComponents/Verify"
-import UserPage from "./components/UserPage";
+import Footer from  './components/CommonComponents/Footer'
 
 export default {
   name: 'App',
   components: {
     // BasePage,
     Nav,
-    Verify,
-    UserPage
+    Footer
   }
 }
 </script>
