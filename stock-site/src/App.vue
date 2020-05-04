@@ -11,6 +11,7 @@
 import Nav from "./components/CommonComponents/Nav";
 import Footer from  './components/CommonComponents/Footer'
 import Search from './components/CommonComponents/Search'
+
 import EmailCodeCheck from "./components/RegisterPage/EmailCodeCheck";
 
 export default {

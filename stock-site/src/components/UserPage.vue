@@ -56,6 +56,22 @@
             }
         },
         mounted() {
+            var user = this.$route.query.user
+            if(user == null){
+                this.$router.push('./login')
+            }else{
+                this.userId = user.email
+                var that = this
+                that.$axios.post('http://112.74.58.75:8010/user',{
+                    userId:that.userId,
+                    // userId:'1120911355@qq.com',
+                }).then(function(res){
+                    that.stockList=res.data.stock
+                    if(res.data.stock.length>0){
+                        that.selectStockId=res.data.stock[0].stockid
+                    }
+                }) 
+            }
             var that = this
             that.$axios.post('http://112.74.58.75:8080/user',{
                 userId:that.userId,
