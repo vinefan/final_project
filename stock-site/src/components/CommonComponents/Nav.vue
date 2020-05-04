@@ -50,7 +50,6 @@ export default {
   data: function(){
       return{
             activeIndex: this.$router.path,
-            ls: [1,2],
             input: '',
             sel_stock: -1
       }
@@ -107,6 +106,7 @@ export default {
 .stock-id{
     width: 37%;
     margin-left: 10px;
+    padding-left: 10px;
 }
 
 .stock div{
