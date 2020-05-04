@@ -73,7 +73,7 @@
                 }) 
             }
             var that = this
-            that.$axios.post('http://112.74.58.75:8010/user',{
+            that.$axios.post('http://112.74.58.75:8080/user',{
                 userId:that.userId,
                 // userId:'1120911355@qq.com',
             }).then(function(res){
@@ -96,7 +96,7 @@
             selectStockId(val){
                 var that = this
                 //绘图请求 http://stocksite/graph
-                that.$axios.post('http://112.74.58.75:8010/pointAndNote',{
+                that.$axios.post('http://112.74.58.75:8080/pointAndNote',{
                     userId:that.userId,
                     stockId:val,
                 }).then(function(res){
@@ -106,7 +106,7 @@
 
                 //投资建议请求
                 // http://stocksite/recommend
-                that.$axios.post('http://112.74.58.75:8010/getComments',{
+                that.$axios.post('http://112.74.58.75:8080/getComments',{
                     stockid:val,
                 }, {
                         headers:{

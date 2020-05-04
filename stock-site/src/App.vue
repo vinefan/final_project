@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Nav v-bind:link='link'></Nav>
+    <EmailCodeCheck></EmailCodeCheck>
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -11,6 +12,8 @@ import Nav from "./components/CommonComponents/Nav";
 import Footer from  './components/CommonComponents/Footer'
 import Search from './components/CommonComponents/Search'
 
+import EmailCodeCheck from "./components/RegisterPage/EmailCodeCheck";
+
 export default {
   name: 'App',
   components: {
@@ -18,6 +21,7 @@ export default {
     Nav,
     Footer,
     Search,
+    EmailCodeCheck
   },
   data: function(){
     return{
