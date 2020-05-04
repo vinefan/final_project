@@ -52,13 +52,12 @@
         created(){
             var that = this
             //请求大盘行情数据
-            that.$axios.post('http://112.74.58.75:8080/index')
+            that.$axios.post('http://112.74.58.75:8010/index')
                 .then(res => {
                     that.bigPanel = res.data.bigPanel;
                     that.bigPanelChange = res.data.bigPanelChange
                     that.stocksUpDown = res.data.stocksUpDown
                 })
-
         }
     }
 </script>
@@ -81,7 +80,7 @@
         min-width: 400px;
     }
     .m-part{
-        padding: 10px 30px;
+        padding: 5px 30px;
     }
     .i-charts{
         /*width: 100%;*/
