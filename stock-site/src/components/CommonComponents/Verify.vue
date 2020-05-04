@@ -41,7 +41,7 @@ export default {
                     if(this.type == 0){
                         this.axios({
                             method: "post",
-                            url:"http://112.74.58.75:8080/register",
+                            url:"http://112.74.58.75:8010/register",
                             data: user
                             })
                             .then((response)=> {
@@ -94,7 +94,7 @@ export default {
                     }else if(this.type ==1){
                         this.axios({
                             method: "post",
-                            url:"http://112.74.58.75:8080/login",
+                            url:"http://112.74.58.75:8010/login",
                             data: this.user
                             })
                             .then((response)=> {

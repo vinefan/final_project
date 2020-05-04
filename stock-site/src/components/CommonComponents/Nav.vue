@@ -16,7 +16,7 @@
                     <p class="stock-price"> {{ stock.price }}</p>
                     <p class="stock-rate"> {{ stock.rate }}</p>
                     <div>
-                        <el-button type="danger" icon="el-icon-plus" size="mini"  round></el-button>
+                        <el-button type="danger" icon="el-icon-plus" size="mini" @click="addStock(stock.stockid)" round></el-button>
                     </div>
                 </div>
                 </transition-group>
@@ -51,7 +51,8 @@ export default {
       return{
             activeIndex: this.$router.path,
             input: '',
-            sel_stock: -1
+            sel_stock: -1,
+            ls: []
       }
   },
   mounted: function () {
@@ -63,6 +64,7 @@ export default {
                     text: this.input
                 }
             if(data == '' || data == ' '){
+                this.ls = []
                 return
             }
     
@@ -80,6 +82,47 @@ export default {
         },
         selectStock: function(index){
             this.sel_stock = index
+        },
+        addStock: function(stockId){
+            var data = {
+                stockid: stockId
+            }
+
+            this.axios({
+                method: "post",
+                url: "http://112.74.58.75:8010/addStock",
+                data: data
+            })
+            .then((response)=>{
+                alert('li')
+                var status = response.data.status
+                var msg = response.data.msg
+
+                if(status==200){
+                    this.$notify({
+                        title: '已成功添加',
+                        message: '',
+                        type: 'success',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                }else{
+                    this.$notify({
+                        title: '警告',
+                        message: msg,
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                }
+            })
+            .catch((response)=>{
+                alert(response)
+                
+                var status = response.data.status
+                var msg = response.data.msg
+                alert(msg)
+            })
         }
     }
 
