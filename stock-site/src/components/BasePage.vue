@@ -70,7 +70,7 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: stretch;
-        margin: 5px 30px;
+        margin: 10px 30px;
         z-index: 0;
     }
     .g-box1{

@@ -146,7 +146,7 @@
     .stocksPanel{
         border: 1px solid #002060;
         position: relative;
-        z-index: 100;
+        z-index: 99;
         border-radius: 14px;
         padding: 20px 5px 20px 15px;
     }

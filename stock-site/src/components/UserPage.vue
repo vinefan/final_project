@@ -18,7 +18,7 @@
             <div class="g-box2">
                 <div class="m-part">
                     <div class="m-title">
-                        <p>昨日数据</p>
+                        <p>上个交易日数据</p>
                         <p style="padding-left: 10px;color: grey;" v-if="HGraph">(当前股票暂无历史交易数据)</p>
                     </div>
                     <HistoryGraph :historyData="historyData"/>
@@ -83,6 +83,7 @@
                     // userId:'1120911355@qq.com',
                 }).then(function(res){
                     that.stockList=res.data.stock
+                    console.log(that.stockList)
                     if(res.data.stock.length>0){
                         that.selectStockId=res.data.stock[0].stockid
                     }
@@ -141,7 +142,7 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: stretch;
-        margin: 5px 30px;
+        margin: 10px 30px;
     }
     .g-box1{
         width: 50%;
