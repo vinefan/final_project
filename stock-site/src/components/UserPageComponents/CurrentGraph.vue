@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div id="CurrentGraphChart" ref="chart" class="charts-item" v-if="GShow"></div>
-        <div class="charts-item" v-if="!GShow">
-            <p style="font-size: 20px;color: grey">当前股票暂无实时交易数据</p>
-        </div>
+        <div id="CurrentGraphChart" ref="chart" class="charts-item" ></div>
+<!--        <div class="charts-item" v-if="!GShow">-->
+<!--            <p style="font-size: 20px;color: grey">当前股票暂无实时交易数据</p>-->
+<!--        </div>-->
     </div>
 </template>
 

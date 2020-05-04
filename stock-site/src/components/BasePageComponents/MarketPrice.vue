@@ -2,7 +2,7 @@
     <div>
         <el-table
                 :data="bigPanel"
-                height="180"
+                height="190"
                 border
                 style="width: 100%">
             <el-table-column
@@ -17,6 +17,7 @@
             </el-table-column>
             <el-table-column
                     prop="rate"
+                    :formatter="formatterRate"
                     label="涨幅">
             </el-table-column>
             <el-table-column
@@ -25,11 +26,13 @@
             </el-table-column>
             <el-table-column
                     prop="updown"
-                    label="涨跌">
+                    label="涨跌"
+                    :formatter="formatterUpdown">
             </el-table-column>
             <el-table-column
                     prop="quantity"
-                    label="总量">
+                    label="总量"
+                    :formatter="formatterQuantity">
             </el-table-column>
         </el-table>
     </div>
@@ -47,6 +50,19 @@
 
             }
         },
+        methods:{
+            formatterRate(row, column, cellValue){
+                return (cellValue*100).toFixed(2)+'%'
+            },
+            formatterQuantity(row, column, cellValue){
+                return cellValue+'亿'
+            },
+            formatterUpdown(row, column, cellValue){
+                return cellValue.toFixed(2)+'%'
+            },
+
+
+        }
 
     }
 </script>

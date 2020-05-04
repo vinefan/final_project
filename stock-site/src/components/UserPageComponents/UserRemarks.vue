@@ -13,7 +13,8 @@
                     class="remark">
                 <el-table-column
                         prop="time"
-                        label="日期">
+                        label="日期"
+                        :formatter="formatterTime">
                 </el-table-column>
                 <el-table-column
                         prop="text"
@@ -38,12 +39,25 @@
             }
         },
         methods: {
+            formatterTime(row,column,val){
+                return new Date(val).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
+            },
+
             open() {
                 var that=this
+                var nowDate = new Date(+new Date()+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'')
+                var newdata={}
+
                 that.$prompt('备注', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                 }).then(({value}) => {
+                    //表格添加
+                    newdata={
+                        time:nowDate,
+                        text:value
+                    }
+                    that.userData.push(newdata)
 
                     that.$axios.post('http://112.74.58.75:8010//addNote',
                         {
@@ -54,7 +68,7 @@
                             if(res.data.status==200){
                                 that.$message({
                                     type: 'success',
-                                    message: '添加备注: ' + value
+                                    message: '数据库添加成功'
                                 })
                             }else if(res.data.status==400){
                                 that.$message({
@@ -62,11 +76,7 @@
                                     message: '添加失败'
                                 });
                             }
-
-
                         })
-
-
                 }).catch(() => {
                     that.$message({
                         type: 'info',

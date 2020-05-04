@@ -21,7 +21,8 @@
             </el-table-column>
             <el-table-column
                     prop="rate"
-                    label="涨跌">
+                    label="涨跌"
+                    :formatter="formatterUpdown">
             </el-table-column>
             <el-table-column
                     width="150">
@@ -51,6 +52,9 @@
             }
         },
         methods:{
+            formatterUpdown(row, column, cellValue){
+                return (cellValue*100).toFixed(2)+'%'
+            },
             DoTimer:function (val) {
                 var that=this
                 that.startQuery=!that.startQuery

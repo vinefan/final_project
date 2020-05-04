@@ -59,7 +59,6 @@
                     that.bigPanelChange = res.data.bigPanelChange
                     that.stocksUpDown = res.data.stocksUpDown
                 })
-
         }
     }
 </script>
@@ -83,7 +82,7 @@
         min-width: 400px;
     }
     .m-part{
-        padding: 10px 30px;
+        padding: 5px 30px;
     }
     .i-charts{
         /*width: 100%;*/
