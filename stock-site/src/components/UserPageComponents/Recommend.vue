@@ -31,7 +31,17 @@
             return{
                 GShow:false
             }
+        },
+        watch:{
+            recommendData(val){
+                if(val.length>0){
+                    this.GShow=true
+                }else{
+                    this.GShow=false
+                }
+            }
         }
+
     }
 </script>
 
