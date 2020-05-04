@@ -37,7 +37,7 @@ export default new Router({
         },{
             path: '/emailcheck',
             name: 'emailcheck',
-            component: Emailcheck,
+            component: EmailCheck,
         }
     ]
 })

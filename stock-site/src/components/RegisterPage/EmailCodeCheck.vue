@@ -41,7 +41,7 @@ export default {
 
             this.axios({
                 method: "post",
-                url:"http://112.74.58.75:8010/active",
+                url:"http://112.74.58.75:8080/active",
                 data: msg
                 })
             .then((Response)=>{

@@ -52,7 +52,7 @@
         created(){
             var that = this
             //请求大盘行情数据
-            that.$axios.post('http://112.74.58.75:8010/index')
+            that.$axios.post('http://112.74.58.75:8080/index')
                 .then(res => {
                     that.bigPanel = res.data.bigPanel;
                     that.bigPanelChange = res.data.bigPanelChange
