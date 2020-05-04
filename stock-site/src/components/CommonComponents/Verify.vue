@@ -4,8 +4,8 @@
             <h2>· 人机验证 ·</h2>
             <div class="verify">
                 <slide-verify 
-                    w=310
-                    h=140   
+                    w='310'
+                    h='140'   
                     slider-text="向右滑动"
                     @success="onSuccess"
                     @fail="onFail"
@@ -28,6 +28,7 @@ export default {
     } ,
     methods: {
             onSuccess(){
+                var user = this.user
                 this.msg = "验证成功"
                 // alert(this.$route.query.user)
                 this.timer = setTimeout(()=>{   //设置延迟执行
@@ -40,8 +41,8 @@ export default {
                     if(this.type == 0){
                         this.axios({
                             method: "post",
-                            url:"http://112.74.58.75:8010/register",
-                            data: this.user
+                            url:"http://112.74.58.75:8080/register",
+                            data: user
                             })
                             .then((response)=> {
                                 status = response.data.status
@@ -75,7 +76,7 @@ export default {
                                     });
                                     this.$router.push({
                                         path: '/emailcheck',
-                                        query: {user: this.user}
+                                        query: {user: user}
                                     })
                                 }
 
@@ -93,7 +94,7 @@ export default {
                     }else if(this.type ==1){
                         this.axios({
                             method: "post",
-                            url:"http://112.74.58.75:8010/login",
+                            url:"http://112.74.58.75:8080/login",
                             data: this.user
                             })
                             .then((response)=> {
@@ -116,7 +117,12 @@ export default {
                                         showClose: false,
                                         duration: '2200',
                                     });
-                                    this.$router.push('/center')
+                                    this.$router.push({
+                                        path: '/center',
+                                        query: {
+                                            user: user
+                                        }
+                                    })
                                 }
 
                                 // 设置session, 还有设置session_time

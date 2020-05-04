@@ -71,37 +71,7 @@ export default {
             }
 
             this.$router.push({path: '/verify', query: {user: login, type: 1}})
-            //加密
-            // let encrypor = new JSEncrypt();
-            // encrypor.setPublicKey(this.pubKey);            
-            // return encrypor.encrypt(data)
-
-            // 发送请求
-            var that = this
-            that.axios({
-                method: "post",
-                url:"http://112.74.58.75:8010/login",
-                data: login
-                })
-                .then((response)=> {
-
-                    // 设置session, 还有设置session_time
-                    that.$cookies.set('superSession', response.data.session);
-                    // 跳转到主页
-                    // this.$router.push('/check/in')
-                    that.$router.push('/center')
-
-                })
-                .catch(()=> {
-                    that.isloading = false;
-                    that.$notify({
-                        title: '警告',
-                        message: '网络异常，请稍后再试',
-                        type: 'warning',
-                        showClose: false,
-                        duration: '2200',
-                    });
-                })
+            
 
         },
         jumpToRejist: function(){

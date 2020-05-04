@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Nav v-bind:link='link'></Nav>
-    <EmailCheck></EmailCheck>
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -11,7 +10,6 @@
 import Nav from "./components/CommonComponents/Nav";
 import Footer from  './components/CommonComponents/Footer'
 import Search from './components/CommonComponents/Search'
-import EmailCheck from './components/RegisterPage/EmailCodeCheck'
 
 export default {
   name: 'App',
@@ -20,7 +18,6 @@ export default {
     Nav,
     Footer,
     Search,
-    EmailCheck
   },
   data: function(){
     return{

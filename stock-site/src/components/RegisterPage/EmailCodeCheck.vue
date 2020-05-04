@@ -32,7 +32,7 @@ export default {
                 return
             }
 
-            var user = this.$router.query.user
+            var user = this.$route.query.user
             var msg = {
                 email: user.email,
                 password: user.password,
@@ -41,14 +41,47 @@ export default {
 
             this.axios({
                 method: "post",
-                url:"http://112.74.58.75:8010/active",
+                url:"http://112.74.58.75:8080/active",
                 data: msg
                 })
             .then((Response)=>{
+                status = Response.data.status
+
+                if(status == 400){
+                    this.$notify({
+                        title: '警告',
+                        message: '网络异常，请稍后再试',
+                        type: 'warning',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                    this.$router.push('/register')
+                }
+
+                if(status == 200){
+                    this.$notify({
+                        title: '完成注册',
+                        message: '可查看个人首页',
+                        type: 'success',
+                        showClose: false,
+                        duration: '2200',
+                    });
+                    this.$router.push({
+                        path: '/center',
+                        query: {user: user}
+                    })
+                }
 
             })
             .catch(()=>{
-                
+                this.isloading = false;
+                                this.$notify({
+                                    title: '警告',
+                                    message: '网络异常，请稍后再试',
+                                    type: 'warning',
+                                    showClose: false,
+                                    duration: '2200',
+                                });
             })
 
         }
