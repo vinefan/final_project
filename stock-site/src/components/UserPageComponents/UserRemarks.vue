@@ -40,12 +40,17 @@
         methods: {
             open() {
                 var that=this
+                var newdata={
+                    time:'a',
+                    text:'b'
+                }
                 that.$prompt('备注', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                 }).then(({value}) => {
+                    that.addData.push(newdata)
 
-                    that.$axios.post('http://112.74.58.75:8010//addNote',
+                    that.$axios.post('http://112.74.58.75:8080//addNote',
                         {
                             'stockid':that.selectStockId,
                             'text':value
@@ -54,7 +59,7 @@
                             if(res.data.status==200){
                                 that.$message({
                                     type: 'success',
-                                    message: '添加备注: ' + value
+                                    message: '数据库添加成功'
                                 })
                             }else if(res.data.status==400){
                                 that.$message({
@@ -62,11 +67,7 @@
                                     message: '添加失败'
                                 });
                             }
-
-
                         })
-
-
                 }).catch(() => {
                     that.$message({
                         type: 'info',

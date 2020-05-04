@@ -15,6 +15,7 @@ Vue.use(SlideVerify);
 Vue.prototype.$axios = axios;
 Vue.use(ElementUI);
 Vue.config.productionTip = false
+axios.defaults.withCredentials=true;
 
 new Vue({
   render: h => h(App),

@@ -4,7 +4,7 @@
                 :data="stockList"
                 style="width: 100%"
                 height="280"
-                highlight-current-row=true
+                highlight-current-row="true"
                 @row-click="clickItem">
             <el-table-column
                     fixed
@@ -21,7 +21,8 @@
             </el-table-column>
             <el-table-column
                     prop="rate"
-                    label="涨跌">
+                    label="涨跌"
+                    :formatter="formatterUpdown">
             </el-table-column>
             <el-table-column
                     width="150">
@@ -51,6 +52,9 @@
             }
         },
         methods:{
+            formatterUpdown(row, column, cellValue){
+                return (cellValue*100).toFixed(2)+'%'
+            },
             DoTimer:function (val) {
                 var that=this
                 that.startQuery=!that.startQuery
@@ -87,7 +91,7 @@
                 // this.deleteList.push(data.stockid)
 
                 //发送删除请求
-                that.$axios.post('http://112.74.58.75:8010/removeStock',{
+                that.$axios.post('http://112.74.58.75:8080/removeStock',{
                     stockid:data.stockid,
                 }).then(res=>{
                     if(res.data.status==200){

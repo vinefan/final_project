@@ -21,6 +21,7 @@
             </el-table-column>
             <el-table-column
                     prop="rate"
+                    :formatter="formatterRate"
                     label="涨跌">
             </el-table-column>
         </el-table>
@@ -43,7 +44,12 @@
             if(val.length>1){
                 this.loading=false
             }
-          }
+          },
+        },
+        methods:{
+            formatterRate(row, column, cellValue){
+                return cellValue+'%'
+            },
         }
 
     }

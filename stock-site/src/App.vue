@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Nav v-bind:link='link'></Nav>
-    <EmailCodeCheck></EmailCodeCheck>
+<!--    <EmailCodeCheck></EmailCodeCheck>-->
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -21,7 +21,7 @@ export default {
     Nav,
     Footer,
     Search,
-    EmailCodeCheck
+    // EmailCodeCheck
   },
   data: function(){
     return{

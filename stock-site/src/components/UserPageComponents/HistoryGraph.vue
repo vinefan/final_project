@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div id="HistoryGraphChart" ref="chart" class="charts-item"></div>
+        <div id="HistoryGraphChart" ref="chart" class="charts-item" ></div>
+<!--        <div class="charts-item" v-if="!GShow">-->
+<!--            <p style="font-size: 20px;color: grey">当前股票暂无历史交易数据</p>-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -23,6 +26,7 @@
                 data:[],
                 time:[],
                 price:[],
+                GShow:false,
 
                 option:{
                     color: '#7bbfea',
@@ -91,6 +95,10 @@
                     this.price = this.data.map(obj => {
                         return obj.price
                     })
+                    this.GShow=true
+                    // if(this.price.length>0){
+                    //     this.GShow=true
+                    // }
 
                     this.option = {
                         color: '#7bbfea',
@@ -136,6 +144,7 @@
             },
             //option变化，重绘图标
             option: {
+
                 handler(newVal, oldVal) {
                     if (this.chart) {
                         if (newVal) {
@@ -158,5 +167,8 @@
     .charts-item{
         width: 580px;
         height: 150px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
     }
 </style>
