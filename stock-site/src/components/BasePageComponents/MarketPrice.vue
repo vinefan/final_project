@@ -58,7 +58,7 @@
                 return cellValue+'亿'
             },
             formatterUpdown(row, column, cellValue){
-                return cellValue.toFixed(2)+'%'
+                return cellValue.toFixed(2)
             },
 
 
