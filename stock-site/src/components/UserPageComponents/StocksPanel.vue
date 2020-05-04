@@ -4,7 +4,7 @@
                 :data="stockList"
                 style="width: 100%"
                 height="280"
-                highlight-current-row="true"
+                highlight-current-row=true
                 @row-click="clickItem">
             <el-table-column
                     fixed
@@ -91,7 +91,7 @@
                 // this.deleteList.push(data.stockid)
 
                 //发送删除请求
-                that.$axios.post('http://112.74.58.75:8080/removeStock',{
+                that.$axios.post('http://112.74.58.75:8010/removeStock',{
                     stockid:data.stockid,
                 }).then(res=>{
                     if(res.data.status==200){

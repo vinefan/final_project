@@ -60,7 +60,6 @@
                 HGraph:true,
                 CGraph:true,
 
-
                 stockList:[],   //个人自选股票
                 selectStockId:'',    //选择单只股票id
 
@@ -79,7 +78,7 @@
                 this.GShow=true
 
                 var that = this
-                that.$axios.post('http://112.74.58.75:8080/user',{
+                that.$axios.post('http://112.74.58.75:8010/user',{
                     userId:that.userId,
                     // userId:'1120911355@qq.com',
                 }).then(function(res){
@@ -104,7 +103,7 @@
                 var that = this
                 that.GShow=true
                 //绘图请求 http://stocksite/graph
-                that.$axios.post('http://112.74.58.75:8080/pointAndNote',{
+                that.$axios.post('http://112.74.58.75:8010/pointAndNote',{
                     userId:that.userId,
                     stockId:val,
                 }).then(function(res){
@@ -117,7 +116,7 @@
 
                 //投资建议请求
                 // http://stocksite/recommend
-                that.$axios.post('http://112.74.58.75:8080//getRecommend',{
+                that.$axios.post('http://112.74.58.75:8010//getRecommend',{
                         stockid:val,
                     }, {
                         headers:{
@@ -153,7 +152,7 @@
         min-width: 400px;
     }
     .m-part{
-        padding: 10px 30px;
+        padding: 8px 30px;
     }
     .m-title{
         display: flex;
