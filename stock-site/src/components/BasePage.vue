@@ -34,6 +34,7 @@
     import MarketPrice from "./BasePageComponents/MarketPrice";
     import MarketChanges from "./BasePageComponents/MarketChanges";
     import StocksRank from "./BasePageComponents/StocksRank";
+
     export default {
         name: "BasePage",
         components:{
@@ -71,6 +72,7 @@
         justify-content: center;
         align-items: stretch;
         margin: 5px 30px;
+        z-index: 0;
     }
     .g-box1{
         width: 50%;

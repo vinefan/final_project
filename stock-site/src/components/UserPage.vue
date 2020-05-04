@@ -41,7 +41,7 @@
             HistoryGraph,
             CurrentGraph,
             UserRemarks,
-            Recommend
+            Recommend,
         },
         data(){
             return{
