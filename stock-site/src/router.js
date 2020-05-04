@@ -5,6 +5,8 @@ import UserPage from './components/UserPage'
 import Login from './components/LoginPage/Login'
 import Register from './components/RegisterPage/Register'
 import Verify from './components/CommonComponents/Verify'
+import EmailCheck from './components/RegisterPage/EmailCodeCheck'
+
 
 Vue.use(Router);
 export default new Router({
@@ -32,6 +34,10 @@ export default new Router({
             name: 'verify',
             component: Verify,
             // props: true
+        },{
+            path: '/emailcheck',
+            name: 'emailcheck',
+            component: Emailcheck,
         }
     ]
 })

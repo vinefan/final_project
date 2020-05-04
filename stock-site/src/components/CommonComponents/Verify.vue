@@ -73,7 +73,10 @@ export default {
                                         showClose: false,
                                         duration: '2200',
                                     });
-                                    this.$router.push('/center')
+                                    this.$router.push({
+                                        path: '/emailcheck',
+                                        query: {user: this.user}
+                                    })
                                 }
 
                             })

@@ -88,7 +88,7 @@ export default {
                 return
             }
 
-            this.$router.push({ path: '/verify', query: {user: register, type:0}})
+            this.$router.push({ path: '/verify', query: {user: register, type: 0}})
 
         }
     }   
@@ -109,12 +109,9 @@ export default {
 }
 .login{
     width: 500px;
-    /* height: 600px; */
     margin: auto;
-    /* background: #eee; */
     border: solid 1px #eee;
     border-radius: 9px;
-    /* box-shadow: rgb(218, 218, 218) 2px 5px 10px 5px; */
     background: #fff;
     opacity: 0.96;
 }
